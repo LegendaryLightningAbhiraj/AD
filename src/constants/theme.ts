@@ -1,65 +1,56 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://unistyl.es/), etc.
- */
+// FOCUSLY custom colours
+export const COLORS = {
+  background: '#101114',
+  surface: '#1B1D23',
+  card: '#23252D',
+  primary: '#A6F36A',
+  text: '#FFFFFF',
+  secondary: '#A0A2AC',
+  border: '#30323A',
+  danger: '#FF6868',
+};
 
-import '@/global.css';
+// Border radius
+export const RADIUS = {
+  small: 10,
+  medium: 16,
+  large: 24,
+};
 
-import { Platform } from 'react-native';
-
-export const Colors = {
-  light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-  },
-  dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-  },
-} as const;
-
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
-
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
-  },
-});
-
+// Shared spacing
 export const Spacing = {
-  half: 2,
   one: 4,
   two: 8,
-  three: 16,
-  four: 24,
-  five: 32,
-  six: 64,
-} as const;
+  three: 12,
+  four: 16,
+  five: 24,
+  six: 32,
+};
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
-export const MaxContentWidth = 800;
+// Maximum content width
+export const MaxContentWidth = 640;
+
+// Light and dark themes
+export const Colors = {
+  light: {
+    background: '#FFFFFF',
+    text: '#101114',
+    textSecondary: '#666666',
+    backgroundElement: '#F0F0F0',
+    tint: '#527D28',
+    link: '#527D28',
+    linkPrimary: '#3C87F7',
+  },
+
+  dark: {
+    background: COLORS.background,
+    text: COLORS.text,
+    textSecondary: COLORS.secondary,
+    backgroundElement: COLORS.surface,
+    tint: COLORS.primary,
+    link: COLORS.primary,
+    linkPrimary: '#75AFFF',
+  },
+};
+
+export type ThemeColor = keyof typeof Colors.light;
